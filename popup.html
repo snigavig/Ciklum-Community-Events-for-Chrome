@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.nanoscroller.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/localStorageModule.js"></script>
+    <script src="js/loader.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href='css/nanoscroller.css' rel='stylesheet' type='text/css'>
+    <title>Ciklum Community Events</title>
+  </head>
+  <body ng-app="eventsApp">
+    <section class="loader hidden">
+      <div>loading...</div>
+      <ul class="bokeh">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
+    <div class="nano">
+        <div class="content hidden" ng-controller="EventsCtrl">
+            <div class="event" ng-repeat="cEvent in cEvents| orderBy:predicate:reverse" ng-click='clicked(this)'>
+              <div class="calendar">
+                <div class="header">{{cEvent.wday}}</div>
+                <div class="num-day">{{cEvent.day}}</div>
+              </div>
+              <div class="location-type">
+                <span>{{cEvent.location}}</span>
+                <span class="strong">{{cEvent.type}}</span>
+              </div>
+              <div class="name">
+                {{cEvent.nameFirstLine}}<br>
+                <div class="{{cEvent.hideName && 'second_row' || ''}}">{{cEvent.nameSecondLine}}</div>
+              </div>
+              <div class="arrow"></div>
+            </div>
+        </div>
+      </div>
+  </body>
+</html>
+

@@ -1,0 +1,196 @@
+body {
+	margin: 0 !important;
+}
+.content {
+  height: 289px!important;
+  max-height: 290px!important;
+}
+.calendar{
+  float: left;
+  width: 43px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 3px 5px 0 15px;
+  height: 41px;
+  border-radius: 4px;
+  background: #FFF;
+  font-size: 11px;
+  line-height: 24px;
+  text-align: center
+}
+.header{
+  height: 16px;
+  background: #F57E20;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  width: 43px;
+  text-align: center;
+  font-size: 12px;
+  color: #FFF;
+  line-height: 15px
+}
+.num-day{
+  border-style:solid;
+  border-color: #C1C1C1;
+  padding-right: 1px;
+  border-width:1px;
+  border-top-width: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  text-align: center;
+  color:black;
+  font-size:18px;
+  font-weight:bold
+}
+.location-type {
+	display:table;
+	height:100%;
+	width: 24%;
+	float:left;
+	line-height:22px;
+	padding-left: 10px;
+  text-align:left
+}
+.location-type span {
+	display:table-row;
+	vertical-align:middle;
+  font-family: 'Open Sans', sans-serif;
+	padding-top: 10px;
+	font-size:10px;
+  color: rgb(166,166,166)
+}
+.strong{
+	font-size:12px !important;
+  font-family: sans-serif;
+  color: currentcolor !important
+}
+.name {
+	width: 60%;
+  font-family: 'ProximaNovaLight', sans-serif;
+  font-size: 16px;
+	float:left;
+	line-height:23px;
+	overflow: hidden;
+	white-space: nowrap
+}
+.second_row {
+	-webkit-mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 100%);
+  width: 273px;
+}
+.event {
+	background-color:#fff;
+  margin-right: 5px;
+	height:42px;
+	border-bottom:1px dashed #cfcfcf;
+	padding-bottom:5px;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	-webkit-transition: background-color 500ms linear
+}
+.event:hover {
+	background-color:#F0F0F0;
+	cursor:pointer
+}
+.event .arrow {
+	height:25px;
+	width:7%;
+	background: url('/img/arrow.png') no-repeat scroll center top transparent;
+  -webkit-transition-duration: 0.8s;
+	-webkit-transition-property: -webkit-transform;
+	position:absolute;
+	right: 0;
+	margin: 10px
+}
+.event:hover .arrow {
+	-webkit-transform:rotate(180deg);
+	-moz-transform:rotate(180deg)
+}
+@font-face {
+  font-weight:normal;
+  font-style:normal;
+	font-family:"Open Sans";
+	src:url("/font/OpenSans-Regular.eot?") format("eot"),
+      url("/font/OpenSans-Regular.woff") format("woff"),
+      url("/font/OpenSans-Regular.ttf") format("truetype"),
+      url("/font/OpenSans-Regular.svg#OpenSans") format("svg")
+}
+@font-face {
+  font-weight:normal;
+  font-style:normal;
+  font-family:"ProximaNovaLight";
+  src:url("/font/proximanova-light-webfont.eot?") format("eot"),
+      url("/font/proximanova-light-webfont.woff") format("woff"),
+      url("/font/proximanova-light-webfont.ttf") format("truetype"),
+      url("/font/proximanova-light-webfont.svg#ProximaNovaLight") format("svg")
+}
+.hidden {
+	display:none;
+}
+.bokeh {
+	font-size: 100px;
+	width: 1em;
+	height: 1em;
+	margin: 0;
+	position: relative;
+	list-style: none;
+}
+.bokeh li {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%
+}
+.bokeh li:nth-child(1) {
+  left: 50%;
+  margin: 0 0 0 -.1em;
+  background: #FF7E00;
+  -webkit-transform-origin: 50% 300%;
+  -webkit-animation: 
+    rota 2.23s linear infinite,
+    opa 3.67s ease-in-out infinite alternate;
+}
+.bokeh li:nth-child(2) {
+  top: 50%; 
+  right: 10;
+  margin: 0 0 0 -.1em ;
+  background: #48A9D6;
+  -webkit-transform-origin: -150% 50%;
+  -webkit-animation: 
+    rota 1.99s linear infinite,
+    opa 4.29s ease-in-out infinite alternate;
+}
+.bokeh li:nth-child(3) {
+  left: 50%; 
+  bottom: 0;
+  margin: 0 0 0 -.1em;
+  background: #554760;
+  -webkit-transform-origin: 50% -150%;
+  -webkit-animation: 
+    rota 2.45s linear infinite,
+    opa 5.12s ease-in-out infinite alternate;
+}
+@-webkit-keyframes rota {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes opa {
+  12.0% { opacity: 0.90; }
+  19.5% { opacity: 0.98; }
+  37.2% { opacity: 0.94; }
+  40.5% { opacity: 0.92; }
+  52.7% { opacity: 0.99; }
+  60.2% { opacity: 0.90; }
+  66.6% { opacity: 0.92; }
+  70.0% { opacity: 0.93; }
+  79.9% { opacity: 0.90; }
+  84.2% { opacity: 0.95; }
+  91.0% { opacity: 0.97; }
+}
+section {
+  height: 120px!important
+}
+section div{
+	top: 45%;
+	left: 35%;
+	position: absolute;
+	opacity: 0.5;
+	text-align: center
+}

@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "Ciklum Community Events",
+  "description": "Shows a list of Ciklum's community events for the current month",
+  "version": "0.9",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "icons": { "16": "img/c_icon_16x16.png",
+           "48": "img/c_icon_48x48.png",
+          "128": "img/c_icon_128x128.png" 
+  },
+  "permissions": [
+    "tabs",
+    "http://ciklum.com/",
+    "http://www.ciklum.com/",
+    "http://*.ciklum.com/"
+  ],
+  "browser_action": {
+    "default_icon": "img/c_icon_16x16.png",
+    "default_popup": "popup.html"
+  }
+}
