@@ -1,4 +1,12 @@
 var eventPageGenerator = {
+    /**
+     * Checks if platform is Windows :(
+     *
+     * @private
+     */
+    _isWin: function () {
+        return navigator.platform.toUpperCase().indexOf('WIN');
+    },
   /**
    * Checks if event is outdated.
    *
@@ -55,18 +63,20 @@ var eventPageGenerator = {
    *
    * @private
    */
-  _drawLoader: function () {
+  _drawLoader: function (_this) {
     var html = $('html'),
         body = $('body');
     $('.nano').hide();
     $('.loader').show(100);
-    html.width(140);//fix for chrome's rendering problem
-    body.width(140);
-    html.height(120);
-    body.height(120);
-    setTimeout(function() { 
-      html.height(html.height() + 1);
-    }, 100);
+      if (0 === _this._isWin()) {
+          html.width(140);//fix for chrome's rendering problem
+          body.width(140);
+          html.height(120);
+          body.height(120);
+          setTimeout(function () {
+              html.height(html.height() + 1);
+          }, 100);
+      }
   },
     /**
    * Shows content.
@@ -81,13 +91,15 @@ var eventPageGenerator = {
    *
    * @private
    */
-  _wipeLoader: function () {
+  _wipeLoader: function (_this) {
     var html = $('html');
     $('.loader').hide();
     $('.nano').show();
-    html.width(520);//some more fixes
-    html.height(290);
-    $('body').height(290);
+        if (0 === _this._isWin()) {
+            html.width(520);//some more fixes
+            html.height(290);
+            $('body').height(290);
+        }
   },
       /**
    * Shows page
@@ -96,14 +108,14 @@ var eventPageGenerator = {
    */
   _drawPage: function (_this) {
     if($('.event').length == 0) {
-      _this._drawLoader();
-      setTimeout(function() { if (!$('.loader').is(':visible')) {_this._drawLoader();} }, 10);
+      _this._drawLoader(_this);
+      setTimeout(function() { if (!$('.loader').is(':visible')) {_this._drawLoader(_this);} }, 10);
     } else {
-      _this._wipeLoader();
+      _this._wipeLoader(_this);
       _this._drawContent();
       setTimeout(function() {
         var html = $('html');
-        html.width(html.width() + 1);//the final one, wooof.
+            html.width(html.width() + 1);//the final one, wooof. this one is for all platforms
         $('.nano').nanoScroller({ flash: true });
       }, 100);
     }
@@ -196,7 +208,7 @@ var eventPageGenerator = {
         $scope.cEvents.push(parameters.communityEvent);
         $scope.cEvents.sort(_this.compareDate);
         if($scope.init){
-          _this._wipeLoader();
+          _this._wipeLoader(_this);
           _this._drawContent();
           $scope.init = false;
         }

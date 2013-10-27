@@ -4,6 +4,7 @@ body {
 .content {
   height: 289px!important;
   max-height: 290px!important;
+  outline: 0!important
 }
 .calendar{
   float: left;
