@@ -39,11 +39,11 @@ var eventPageGenerator = {
    *
    * @private
    */
-  _removeStorageValue: function (index) {
+  _removeStorageValue: function (id) {
     angular.bootstrap($('.content'), ['eventsApp']);
     var injector = angular.injector(['ng', 'eventsApp']);
     injector.invoke(['localStorageService', function(localStorageService){
-      localStorageService.remove(localStorageService.getKey(index));
+      localStorageService.remove('event_' + id);
     }]);
   },
   /**
@@ -146,7 +146,7 @@ var eventPageGenerator = {
 
     for (i = 0; i < arr.length; i++) {
       if (_this._isEventOutdated(arr[i].date)) {
-        _this._removeStorageValue(i);
+        _this._removeStorageValue(arr[i].id);
       }
     }
   },
@@ -176,10 +176,7 @@ var eventPageGenerator = {
         localStorageService.add(key, value);
       };
       $scope.getLocalValue = function(key) {
-          return localStorageService.get(key);
-      };
-      $scope.getKeyLocalValue = function(index) {
-        return localStorageService.getKey(index);
+        return localStorageService.get(key);
       };
       $scope.getAllLocalValues = function() {
         return localStorageService.getAll();
@@ -269,6 +266,7 @@ var eventPageGenerator = {
       }
 
       communityEvent = {
+        id: id,
         date: date.toDateString(),
         day: date.getDate(),
         wday: _this.weekdayNames[new Date(date).getDay()],

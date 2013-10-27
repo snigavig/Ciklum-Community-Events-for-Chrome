@@ -1,6 +1,6 @@
 var angularLocalStorage = angular.module('LocalStorageModule', []);
 angularLocalStorage.constant('prefix', 'event_');
-angularLocalStorage.constant('notify', { setItem: true, removeItem: false} );
+angularLocalStorage.constant('notify', { setItem: true } );
 
 angularLocalStorage.service('localStorageService', [
   '$rootScope',
@@ -12,7 +12,7 @@ angularLocalStorage.service('localStorageService', [
     var addToLocalStorage = function (key, value) {
       localStorage.setItem(prefix + key, JSON.stringify(value));
       if (notify.setItem) {
-        $rootScope.$broadcast('LocalStorageModule.notification.setItem', {key: key, communityEvent: value, storageType: 'localStorage'});
+        $rootScope.$broadcast('LocalStorageModule.notification.setItem', {key: key, communityEvent: value});
       }
       return true;
     };
@@ -27,13 +27,6 @@ angularLocalStorage.service('localStorageService', [
     // Remove an item from local storage
     var removeFromLocalStorage = function (key) {
         localStorage.removeItem(key);
-    };
-
-    // get a key by index from local storage
-    var getKeyByIndex = function (index) {
-      var key = localStorage.key(index);
-      if (!key) {return null;}
-      return key;
     };
 
     // get all values from local storage
@@ -53,7 +46,6 @@ angularLocalStorage.service('localStorageService', [
       add: addToLocalStorage,
       get: getFromLocalStorage,
       remove: removeFromLocalStorage,
-      getKey: getKeyByIndex,
       getAll: getAllFromLocalStorage,
     };
   }

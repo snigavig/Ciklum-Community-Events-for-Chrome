@@ -3,7 +3,7 @@
 
   "name": "Ciklum Community Events",
   "description": "Shows a list of Ciklum's community events for the current month",
-  "version": "0.9",
+  "version": "0.12",
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "icons": { "16": "img/c_icon_16x16.png",
            "48": "img/c_icon_48x48.png",
